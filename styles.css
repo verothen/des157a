@@ -1,0 +1,20 @@
+body, h1, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set the wrapper to be full width and center the main container */
+.wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Main container should have a max width of 1200px, and a minimum width of 800px */
+.main-container {
+    width: 100%;
+    max-width: 1200px;
+    min-width: 900px; /* Set the minimum width to 900px */
+    margin: 0 auto; /* Center the container if the screen is wider than 1200px */
+    padding: 20px; /* Add some padding if needed */
+}
