@@ -5,22 +5,21 @@ h1, p {
     padding: 0;
 }
 
-/* Set the wrapper to be full width and center the main container */
-.wrapper {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
 
-/* Main container should have a max width of 1200px, and a minimum width of 800px */
+
+
 body{
-    width: 1000px;
-    background-color: aqua;
-  
+    width: 1100px;
+    
 }
 
 #banner{
     width: 1100px;
     height:250px;
-    
+    background-color: aqua;
+
+}
+
+ul{
+    list-style-type: none;
 }
