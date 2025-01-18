@@ -7,6 +7,7 @@ h1{
     font-size: 90px;
 }
 h2{
+    margin: 0;
     font-family: 'Hachi Maru Pop', sans-serif;
     font-size: 30px;
 }
@@ -123,8 +124,8 @@ a:visited {
 }
 
 main {
-    display: flex;           /* Enable Flexbox */
-    flex-direction: row;     /* Arrange items in a row */
+    display: flex;          
+    flex-direction: row;     
     justify-content: space-between; /* Distribute space evenly between items */
     align-items: flex-start; /* Align items at the top */
     gap: 20px;               /* Add spacing between sections */
