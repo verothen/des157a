@@ -27,6 +27,26 @@ body{
     
 }
 
+.ball {
+    width: 50px;
+    height: 50px;
+    background-color: #3498db;
+    border-radius: 50%;
+  }
+
+  .ball:hover {
+    animation: bounce 2s infinite ease-in-out;
+  }
+  
+  @keyframes bounce {
+    0%, 100% {
+        transform: translateX(0);
+      }
+      50% {
+        transform: translateX(1100px);
+      }
+    }
+
 header{
     margin-bottom: 20px;
 }
@@ -38,11 +58,23 @@ header{
     border-top: 4px solid #ff545c;
     border-bottom: 4px solid #ff545c;
     border-left: 4px solid #ff545c;
-    background-color: aqua;
+    color: white;
     border-radius: 3px;
     text-align: center;
+    animation: changeColor 5s infinite;
 
 }
+@keyframes changeColor {
+    0% {
+      background-color: #ff545c;
+    }
+    50% {
+      background-color: #55d8c1;
+    }
+    100% {
+      background-color: #ff545c;
+    }
+  }
 
 ul{
     list-style-type: none;
@@ -136,3 +168,6 @@ section {
     max-width: 25%;          /* Ensure sections don't get too wide */
 }
 
+footer{
+    font-family: 'Hachi Maru Pop', sans-serif;
+}
