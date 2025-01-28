@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiment 2</title>
+</head>
+<body>
+    <h1>Experiment 2</h1>
+    <!-- asks user to pick a color to change background color  -->
+    <script>
+        function pickColor() {
+            
+            var color = prompt("Pick a color: red, green, or blue", "");
+
+       
+            if (color === "red" || color === "green" || color === "blue") {
+                document.body.style.backgroundColor = color;
+            } else {
+                alert("Please pick a valid color: red, green, or blue");
+            }
+        }
+
+      
+        pickColor();
+    </script>
+</body>
+</html>
