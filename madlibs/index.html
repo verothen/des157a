@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haiku Generator</title>
+</head>
+<body>
+    <h2>Haiku Generator</h2>
+    
+    <form id="haiku-form">
+        <!-- Line 1 -->
+        <label>
+            <select name="line0-option1">
+                <option value="Cats">Cats</option>
+                <option value="Wolves">Wolves</option>
+                <option value="Mice">Mice</option>
+            </select>
+            run through the
+            <select name="line0-option2">
+                <option value="rocks">rocks</option>
+                <option value="grass">grass</option>
+                <option value="leaves">leaves</option>
+            </select>
+        </label>
+        <br><br>
+
+        <!-- Line 2 -->
+        <label>
+            <select name="line1-option1">
+                <option value="Wings">Wings</option>
+                <option value="Birds">Birds</option>
+                <option value="Dreams">Dreams</option>
+            </select>
+            flutter in 
+            <select name="line1-option2">
+                <option value="breeze">breeze</option>
+                <option value="light">light</option>
+                <option value="moon">moon</option>
+            </select>
+        </label>
+        <br><br>
+
+        <!-- Line 3 -->
+        <label>
+            <select name="line2-option1">
+                <option value="Birds">Rabbits</option>
+                <option value="Frogs">Squirrels</option>
+                <option value="Crickets">Crickets</option>
+            </select>
+            hop away.
+        </label>
+        <br><br>
+
+        <button type="button" id="generate-button">Generate Haiku</button>
+    </form>
+    
+    <div id="generated-haiku"></div>
+
+    <script>
+        // Handle haiku generation
+        var form = document.getElementById("haiku-form");
+        var button = document.getElementById("generate-button");
+        var haikuDiv = document.getElementById("generated-haiku");
+
+        button.addEventListener("click", function () {
+            var formData = new FormData(form);
+            var haikuLines = [
+                formData.get("line0-option1") + " run through the " + formData.get("line0-option2"),
+                formData.get("line1-option1") + " flutter in the soft " + formData.get("line1-option2"),
+                formData.get("line2-option1") + " hop away."
+            ];
+
+            haikuDiv.innerHTML = "<p>" + haikuLines.join("<br>") + "</p>";
+        });
+    </script>
+</body>
+</html>
