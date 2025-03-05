@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haiku Generator</title>
+</head>
+<body>
+    <h2>Haiku Generator</h2>
+
+    <button id="generate-haiku-button">Generate Haiku</button>
+
+    <form id="haiku-form" style="display: none;">
+        <div id="haiku-container"></div>
+        <br>
+        <button type="button" id="submit-haiku-button">Submit</button>
+    </form>
+
+    <div id="generated-haiku"></div>
+
+    <script>
+        var haikuTemplates = [
+            `<label>
+                <select name="word1">
+                    <option value="Leaves">Leaves</option>
+                    <option value="Snow">Snow</option>
+                    <option value="Rain">Rain</option>
+                </select>
+                drift through the 
+                <select name="word2">
+                    <option value="wind">wind</option>
+                    <option value="sky">sky</option>
+                    <option value="hills">hills</option>
+                </select>
+            </label>
+            <br><br>
+            <label>
+                <select name="word3">
+                    <option value="Birds">Birds</option>
+                    <option value="Waves">Waves</option>
+                    <option value="Dreams">Dreams</option>
+                </select>
+                call beneath the 
+                <select name="word4">
+                    <option value="moon">moon</option>
+                    <option value="sun">sun</option>
+                    <option value="stars">stars</option>
+                </select>
+            </label>
+            <br><br>
+            <label>
+                <select name="word5">
+                    <option value="Echoes">Echoes</option>
+                    <option value="Footsteps">Footsteps</option>
+                    <option value="Memories">Memories</option>
+                </select>
+                fade away.
+            </label>`,
+
+            `<label>
+                <select name="word1">
+                    <option value="Winds">Winds</option>
+                    <option value="Storms">Storms</option>
+                    <option value="Breezes">Breezes</option>
+                </select>
+                whisper through the 
+                <select name="word2">
+                    <option value="trees">trees</option>
+                    <option value="valleys">valleys</option>
+                    <option value="meadows">meadows</option>
+                </select>
+            </label>
+            <br><br>
+            <label>
+                <select name="word3">
+                    <option value="Shadows">Shadows</option>
+                    <option value="Clouds">Clouds</option>
+                    <option value="Rivers">Rivers</option>
+                </select>
+                dance upon the 
+                <select name="word4">
+                    <option value="earth">earth</option>
+                    <option value="waves">waves</option>
+                    <option value="mountains">mountains</option>
+                </select>
+            </label>
+            <br><br>
+            <label>
+                <select name="word5">
+                    <option value="Silence">Silence</option>
+                    <option value="Music">Music</option>
+                    <option value="Stillness">Stillness</option>
+                </select>
+                lingers on.
+            </label>`,
+
+            `<label>
+                <select name="word1">
+                    <option value="Mist">Mist</option>
+                    <option value="Dew">Dew</option>
+                    <option value="Fog">Fog</option>
+                </select>
+                rises in the 
+                <select name="word2">
+                    <option value="morning">morning</option>
+                    <option value="twilight">twilight</option>
+                    <option value="evening">evening</option>
+                </select>
+            </label>
+            <br><br>
+            <label>
+                <select name="word3">
+                    <option value="Lanterns">Lanterns</option>
+                    <option value="Fireflies">Fireflies</option>
+                    <option value="Stars">Stars</option>
+                </select>
+                glow against the 
+                <select name="word4">
+                    <option value="dark">dark</option>
+                    <option value="dawn">dawn</option>
+                    <option value="sky">sky</option>
+                </select>
+            </label>
+            <br><br>
+            <label>
+                <select name="word5">
+                    <option value="Dreams">Dreams</option>
+                    <option value="Echoes">Echoes</option>
+                    <option value="Footsteps">Footsteps</option>
+                </select>
+                drift away.
+            </label>`
+        ];
+
+        var generateButton = document.getElementById("generate-haiku-button");
+        var haikuContainer = document.getElementById("haiku-container");
+        var haikuForm = document.getElementById("haiku-form");
+        var submitButton = document.getElementById("submit-haiku-button");
+        var generatedHaikuDiv = document.getElementById("generated-haiku");
+
+        generateButton.addEventListener("click", function () {
+            var randomIndex = Math.floor(Math.random() * haikuTemplates.length);
+            haikuContainer.innerHTML = haikuTemplates[randomIndex];
+            haikuForm.style.display = "block";
+        });
+
+        submitButton.addEventListener("click", function () {
+            var formData = new FormData(haikuForm);
+            var haikuLines = [
+                formData.get("word1") + " " + haikuContainer.querySelectorAll("label")[0].innerText.trim().split(" ")[1] + " the " + formData.get("word2"),
+                formData.get("word3") + " " + haikuContainer.querySelectorAll("label")[1].innerText.trim().split(" ")[1] + " the " + formData.get("word4"),
+                formData.get("word5") + " " + haikuContainer.querySelectorAll("label")[2].innerText.trim()
+            ];
+
+            generatedHaikuDiv.innerHTML = "<p>" + haikuLines.join("<br>") + "</p>";
+        });
+    </script>
+</body>
+</html>
